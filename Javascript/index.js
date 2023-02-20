@@ -1,6 +1,6 @@
 function updateTime() {
   // Los Angeles
-  let losAngelesElement = documenet.querySelector("#los-angeles");
+  let losAngelesElement = document.querySelector("#los-angeles");
   let losAngelesDateElement = losAngelesElement.querySelector(".date");
   let losAngelesTimeElement = losAngelesElement.querySelector(".time");
   let losAngelesTime = moment().tz("America/Los_Angeles");
@@ -11,10 +11,10 @@ function updateTime() {
   );
 
   // Sydney
-  let sydneyElement = documenet.querySelector("#sydney");
+  let sydneyElement = document.querySelector("#sydney");
   let sydneyDateElement = sydneyElement.querySelector(".date");
   let sydneyTimeElement = sydneyElement.querySelector(".time");
-  let sydneyTime = moment().tz("Europe/Paris");
+  let sydneyTime = moment().tz("Australia/Sydney");
 
   sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do YYYY");
   sydneyTimeElement.innerHTML = sydneyTime.format(
@@ -22,7 +22,7 @@ function updateTime() {
   );
 
   // Paris
-  let parisElement = documenet.querySelector("#paris");
+  let parisElement = document.querySelector("#paris");
   let parisDateElement = parisElement.querySelector(".date");
   let parisTimeElement = parisElement.querySelector(".time");
   let parisTime = moment().tz("Europe/Paris");
