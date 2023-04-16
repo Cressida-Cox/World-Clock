@@ -40,12 +40,18 @@ function updateTime() {
 }
 
 function updateCity(event) {
+  clearInterval(interval);
   let cityTimeZone = event.target.value;
 
   if (cityTimeZone === "current") {
     cityTimeZone = moment.tz.guess();
   }
 
+  updateSelection(cityTimeZone);
+  interval = setInterval(updateSelection, 1000, cityTimeZone);
+}
+
+function updateSelection(cityTimeZone) {
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
 
@@ -65,7 +71,7 @@ function updateCity(event) {
 }
 
 updateTime();
-setInterval(updateTime, 1000);
+let interval = setInterval(updateTime, 1000);
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
